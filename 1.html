@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue Project Guide setup</title>
+</head>
+<body>
+    <!-- 将库添加到这里 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <!-- 一些 HTML 代码 -->
+    <div id="root">
+        <p>{{message}}</p>
+        <input type="text" v-model="message">
+    </div>
+
+    <!--  -->
+    <script>
+        console.log('yes! we are using Vue version', Vue.version)
+
+        var app = new Vue({
+            el: '#root',
+            data() {
+                return {
+                    message: 'Hello Vue.js!'
+                }
+            },
+        
+        })
+    </script>
+</body>
+</html>
