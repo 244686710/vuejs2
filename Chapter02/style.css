@@ -1,0 +1,17 @@
+#notebook{
+    display: flex;
+}
+.main {
+    display: flex;
+    flex-direction: column;
+}
+.side-bar {
+    width: 180px;
+    background-color: #eee;
+}
+.selected {
+    background: pink;
+}
+.note {
+    line-height: 30px;
+}
