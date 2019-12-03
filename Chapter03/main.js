@@ -17,8 +17,20 @@ new Vue({
             <card :def="testCard" @play="handlePlay"/>
         -->
         <transition name="hand">
-            <hand :cards="testHand" v-if="!activeOverlay" />
+            <hand :cards="testHand" v-if="!activeOverlay" @card-play="testPlayCard" />
         </transition>
+
+        <overlay v-if="activeOverlay">
+            <overlay-content-player-turn 
+                v-if="activeOverlay === 'player-turn'" 
+                :player="currentPlayer" />
+            <overlay-content-last-play 
+                v-else-if="activeOverlay === 'last-play'"
+                :opponent="currentOpponent" />
+            <overlay-content-game-over
+                v-if="activeOverlay === 'game-over'"
+                :players="players" />
+        </overlay>
     </div>`,
     methods: {
         handlePlay() {
@@ -43,6 +55,11 @@ new Vue({
                 id: randomId,
                 def: cards[randomId]
             }
+        },
+        testPlayCard(card) {
+            // 将卡牌从玩家手中移除
+            const index = this.testHand.indexOf(card);
+            this.testHand.splice(index, 1)
         }
     },
     created() {
