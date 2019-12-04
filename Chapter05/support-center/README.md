@@ -1,4 +1,4 @@
-# support-polyfill
+# support-center
 
 ## Project setup
 ```
@@ -15,6 +15,11 @@ npm run serve
 npm run build
 ```
 
+### Run your tests
+```
+npm run test
+```
+
 ### Lints and fixes files
 ```
 npm run lint
@@ -22,3 +27,5 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+**router-link exact属性：当前属性完全匹配时，链接才能获得active class**

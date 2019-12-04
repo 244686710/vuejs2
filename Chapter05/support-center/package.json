@@ -1,5 +1,5 @@
 {
-  "name": "support-polyfill",
+  "name": "support-center",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -16,8 +16,6 @@
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.1.0",
     "@vue/cli-plugin-eslint": "^4.1.0",
-    "@vue/cli-plugin-router": "^4.1.0",
-    "@vue/cli-plugin-vuex": "^4.1.0",
     "@vue/cli-service": "^4.1.0",
     "@vue/eslint-config-standard": "^4.0.0",
     "babel-eslint": "^10.0.3",

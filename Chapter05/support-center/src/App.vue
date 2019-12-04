@@ -1,9 +1,18 @@
 <template>
   <div id="app">
-    Supoort center
+    <AppLayout />
   </div>
 </template>
+<script>
 
+import AppLayout from './components/AppLayout'
+export default {
+  name: 'App',
+  components: {
+    AppLayout
+  }
+}
+</script>
 <style lang="stylus">
 #app
   font-family 'Avenir', Helvetica, Arial, sans-serif

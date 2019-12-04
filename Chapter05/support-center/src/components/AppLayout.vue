@@ -4,18 +4,21 @@
       <div><img class="img" src="../assets/logo.svg" alt="" /></div>
       <div>My shirt shop</div>
     </header>
-
+    <nav-menu></nav-menu>
     <!-- 菜单将放在这里 -->
     <router-view></router-view>
   </div>
 </template>
 <script>
+import NavMenu from './NavMenu'
 export default {
-
+  components: {
+    NavMenu
+  }
 }
 </script>
 <style lang="stylus">
-// @import url('~@/style.main.styl');
+@import '../style/main';
 </style>
 <style lang="stylus" scoped>
 .header{
