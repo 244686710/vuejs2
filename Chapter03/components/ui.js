@@ -11,7 +11,7 @@ Vue.component('top-bar', {
         <div class="player p1">{{ players[1].name }}</div> 
     </div>`,
     created() {
-        console.log(this.players)
+        // console.log(this.players)
     },
 });
 

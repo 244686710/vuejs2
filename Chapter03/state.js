@@ -41,7 +41,7 @@ var state = {
   testHand: [],
   activeOverlay: null,
   currentPlayerIndex: Math.round(Math.random()), // 方法将随机使用 0 或 1 来确定谁先行动。
- 
+
 
   get currentPlayer() {
     return state.players[state.currentPlayerIndex]
@@ -54,5 +54,12 @@ var state = {
   get currentOpponent() {
     console.log(state.players[state.currentOpponentId])
     return state.players[state.currentOpponentId]
-  }
+  },
+  drawPile: pile,
+  discardPile: {},
+
+  get currentHand() {
+    return state.currentPlayer.hand
+  },
+  canPlay: false,
 }
