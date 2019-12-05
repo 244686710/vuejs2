@@ -1,0 +1,3 @@
+**router-link exact属性：当前属性完全匹配时，链接才能获得active class**
+
+使用 mixin复用代码

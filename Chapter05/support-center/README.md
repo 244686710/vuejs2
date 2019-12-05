@@ -28,4 +28,4 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
-**router-link exact属性：当前属性完全匹配时，链接才能获得active class**
+
