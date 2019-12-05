@@ -5,13 +5,19 @@
       :class="inputClass"
       :name="name"
       :type="type"
-      :value.prop="value"
+      :value.prop="text"
       :placeholder="placeholder"
+      @input="update"
     />
   </div>
 </template>
 <script>
 export default {
+  // 自定义v-model, 需要指定prop,event
+  model: {
+    prop: 'text',
+    event: 'update'
+  },
   props: {
     name: {
       type: String
@@ -20,7 +26,7 @@ export default {
       type: String,
       default: 'text'
     },
-    value: {
+    text: {
       required: true
     },
     placeholder: {
@@ -38,5 +44,10 @@ export default {
       }
     }
   },
+  methods: {
+    update (event) {
+      this.$emit('update', event.currentTarget.value)
+    }
+  }
 }
 </script>

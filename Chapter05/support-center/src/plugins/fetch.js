@@ -1,21 +1,27 @@
 let baseUrl
-
 export default {
   install (Vue, options) {
     console.log('Installed!', options)
-
     baseUrl = options.baseUrl
     Vue.prototype.$fetch = $fetch
   }
 }
 
-export async function $fetch (url) {
-  const response = await fetch(`${baseUrl}${url}`)
+export async function $fetch (url, options) {
+  debugger
+  const finalOptions = Object.assign({}, {
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    credentials: 'include'
+  }, options)
+  const response = await fetch(`${baseUrl}${url}`, finalOptions)
   if (response.ok) {
     const data = await response.json()
     return data
   } else {
-    const error = new Error('error')
+    const message = await response.text()
+    const error = new Error(message)
     throw error
   }
 }

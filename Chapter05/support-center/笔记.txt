@@ -1,3 +1,22 @@
 **router-link exact属性：当前属性完全匹配时，链接才能获得active class**
 
 使用 mixin复用代码
+
+自定义v-model
+  // 自定义v-model, 需要指定prop,event
+  model: {
+    prop: 'text',
+    event: 'update'
+  },
+
+  this.$emit('update', event.currentTarget.value)
+
+
+css scope处理
+.form {
+  >>> .content {
+    max-width 400px
+  }
+}
+
+如果使用的是SASS,则需要使用/deep/选择器而不是 >>>

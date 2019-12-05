@@ -20,6 +20,7 @@
 
 <script>
 export default {
+  name: 'SmartForm',
   props: {
     title: {
       type: String,
