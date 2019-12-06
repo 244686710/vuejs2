@@ -6,7 +6,9 @@
     </header>
     <nav-menu></nav-menu>
     <!-- 菜单将放在这里 -->
-    <router-view></router-view>
+    <transition name="fade" mode="out-in">
+      <router-view />
+    </transition>
   </div>
 </template>
 <script>

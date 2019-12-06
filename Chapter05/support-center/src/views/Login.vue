@@ -118,7 +118,7 @@ export default {
           password: this.password
         })
       })
-      this.$router.push({ name: 'home' })
+      this.$router.replace(this.$route.params.wantedRoute || { name: 'home' }) // 将浏览器历史记录中的当前条目调换为新路由，而不是添加新条目
     },
 
     async signup () {

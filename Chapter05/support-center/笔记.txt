@@ -20,3 +20,42 @@ css scope处理
 }
 
 如果使用的是SASS,则需要使用/deep/选择器而不是 >>>
+
+
+// 路由拦截，重定向
+router.beforeEach((to, from, next) => {
+  // TODO
+  console.log('to', to.name)
+  // 判断是否登录
+  if (to.meta.private && !state.user) {
+    next({
+      name: 'login',
+      params: {
+        wantedRoute: to.fullPath // 目标路由
+      }
+    })
+    return
+  }
+  next()
+})
+
+**** 针对子路由（嵌套路由）使用matched属性访问这些路由对象的列表
+ if (to.matched.some(r => r.meta.private) && !state.user) {
+    next({
+      name: 'login',
+      params: {
+        wantedRoute: to.fullPath // 目标路由
+      }
+    })
+    return
+  }
+
+  if (to.matched.some(r => r.meta.guest) && state.user) {
+    next({
+      name: 'home'
+    })
+    return
+  }
+  next()
+
+* 绑定属性：组件 $attrs

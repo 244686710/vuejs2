@@ -1,0 +1,24 @@
+<template>
+  <main class="tickets-layout">
+    <h1>Your Support tickets</h1>
+    <!-- TODO -->
+    <div class="actions">
+      <router-link
+        v-if="$route.name !== 'tickets'"
+        tag="button"
+        :to="{ name: 'tickets' }"
+        >See all tickets</router-link>
+      <router-link
+        v-if="$route.name !== 'new-ticket'"
+        tag="button"
+        :to="{ name: 'new-ticket' }"
+      >New ticket</router-link>
+    </div>
+    <router-view></router-view>
+  </main>
+</template>
+<script>
+export default {
+  name: 'TicketsLayout'
+}
+</script>
