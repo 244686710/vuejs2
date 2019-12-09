@@ -1,0 +1,8 @@
+Vuex 集中式状态管理
+Vuex 的核心元素是store
+
+store 包含如下信息
+state, 存储应用状态的响应数据对象
+getter, 等价于store的计算属性
+mutation, 用来改变应用状态的函数
+action, 通常用来调用异步的API函数，然后使用mutation改变数据。
