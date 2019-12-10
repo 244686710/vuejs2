@@ -2,7 +2,7 @@ import passport from 'passport'
 import { OAuth2Strategy as GoogleStrategy } from 'passport-google-oauth'
 import * as Users from './connectors/users'
 import { GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, PUBLIC_URL } from './config'
-
+console.log(`${PUBLIC_URL}/auth/google/callback`)
 passport.use(new GoogleStrategy(
   {
     clientID: GOOGLE_CLIENT_ID,
@@ -10,6 +10,9 @@ passport.use(new GoogleStrategy(
     callbackURL: `${PUBLIC_URL}/auth/google/callback`,
   },
   async (accessToken, refreshToken, profile, done) => {
+    console.log(accessToken)
+    console.log(refreshToken)
+    console.log(profile)
     try {
       const user = await Users.findOrCreate({
         profile: {
