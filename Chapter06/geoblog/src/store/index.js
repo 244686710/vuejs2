@@ -63,6 +63,6 @@ export default new Vuex.Store({
     }
   },
   modules: {
-    maps
+    maps: maps
   }
 });

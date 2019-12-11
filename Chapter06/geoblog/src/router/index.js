@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../components/GeoBolg.vue";
-import store from "../store/index";
+// import store from "../store/index";
 
 Vue.use(VueRouter);
 
@@ -43,21 +43,21 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  console.log("to", to.name);
-  const user = store.getters.user;
-  if (to.matched.some(r => r.meta.private) && !user) {
-    next({
-      name: "login",
-      params: {
-        wantedRoute: to.fullPath
-      }
-    });
-    return;
-  }
-  if (to.matched.some(r => r.meta.guest) && user) {
-    next({ name: "home" });
-    return;
-  }
+  // console.log("to", to.name);
+  // const user = store.getters.user;
+  // if (to.matched.some(r => r.meta.private) && !user) {
+  //   next({
+  //     name: "login",
+  //     params: {
+  //       wantedRoute: to.fullPath
+  //     }
+  //   });
+  //   return;
+  // }
+  // if (to.matched.some(r => r.meta.guest) && user) {
+  //   next({ name: "home" });
+  //   return;
+  // }
   next();
 });
 

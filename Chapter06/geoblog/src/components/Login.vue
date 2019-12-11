@@ -4,12 +4,21 @@
 
     <div class="actions">
       <button @click="openGoogleSignin">Sign in with Google</button>
+      <h3>test modules</h3>
+      <div>center:{{ center }}</div>
+      <div>zoom: {{ zoom }}</div>
     </div>
   </div>
 </template>
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 export default {
+  computed: {
+    ...mapGetters({
+      center: "maps/center"
+    }),
+    ...mapGetters("maps", ["zoom"])
+  },
   methods: {
     ...mapActions(["login"]),
     openGoogleSignin() {
@@ -30,6 +39,7 @@ export default {
   },
   mounted() {
     window.addEventListener("message", this.handleMessage);
+    console.log(this.center);
   },
   beforeDestroy() {
     window.removeEventListener("message", this.handleMessage);

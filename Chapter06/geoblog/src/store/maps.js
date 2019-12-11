@@ -6,7 +6,11 @@ export default {
         lat: 48.8538302,
         lng: 2.2982161
       },
-      zomm: 15
+      zoom: 15
     };
+  },
+  getters: {
+    center: state => state.center,
+    zoom: state => state.zoom
   }
 };

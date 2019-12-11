@@ -4,6 +4,7 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import * as filters from "./filters";
+import "./components/MyTitle";
 
 // 过滤器
 for (const key in filters) {

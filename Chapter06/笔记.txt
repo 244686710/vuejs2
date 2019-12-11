@@ -6,3 +6,64 @@ state, 存储应用状态的响应数据对象
 getter, 等价于store的计算属性
 mutation, 用来改变应用状态的函数
 action, 通常用来调用异步的API函数，然后使用mutation改变数据。
+
+带命名空间的模块
+modules: {
+  maps
+}
+// maps.js
+export default {
+  namespaced: true, // 带命名空间的模块， namespaced 选项告诉vuex在该模块的所有getter, mutation 和 action 前添加maps命名空间。同时，还会在这个模块内的commit和dispatch调用中添加它们。
+
+  state () {
+    return {
+      center: {
+        let: 48.7781,
+        lng: 121121.121
+      },
+      zoom: 15
+    }
+  },
+  getters: {
+    center: state => state.center,
+    room: state => state.room
+  }
+}
+
+maps/center 和maps/zoom getter会被添加到store中，使用个可以这样写
+1. this.$store.getters['maps/center']
+2. 或者使用getter辅助
+  mapgetters({
+    center: 'maps/center'
+  })
+3. 指定命名空间 mapsgeters('maps', ['center'])
+4. 使用createNamespacedHelpers方法生产基于某个命名空间的辅助函数：
+  import { createNamespacedHelpers } from Vuex;
+  const { mapgetters } = createNamespacedHelpers('maps');
+
+  export default {
+    computed: mapsgeters([
+      'center',
+      'zoom'
+    ])
+  }
+
+### 渲染函数和JSX
+1.使用JavaScript渲染函数编写视图
+Vue 会将模板编译成render函数。
+export default {
+  props: ['message'],
+  render(createElement) {
+    return createElement (
+      // 元素或组件
+      'p',
+      // 数据对象
+      { class: 'content' },
+      // 子节点或文字内容
+      this.message
+    )
+  }
+}
+
+动态模板
+直接写渲染函数的主要优势在于，它更接近编译器，你可以使用JavaScript的完整能力来操控模板。
