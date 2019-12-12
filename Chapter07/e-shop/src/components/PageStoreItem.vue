@@ -126,6 +126,12 @@ export default {
           this.commentText = text;
         }
       }
+    },
+
+    asyncData({ store, route }) {
+      return store.dispatch("item/fetchStoreItemDetails", {
+        id: route.params.id
+      });
     }
   }
 };

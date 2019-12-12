@@ -28,7 +28,10 @@ export default {
   },
 
   methods: {
-    ...mapActions("items", ["fetchItems"])
+    ...mapActions("items", ["fetchItems"]),
+    asyncDate({ store }) {
+      return store.dispatch("items/fetchItems");
+    }
   },
 
   mounted() {
