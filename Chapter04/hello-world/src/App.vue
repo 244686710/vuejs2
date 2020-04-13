@@ -1,15 +1,13 @@
 <template>
   <div>
-    <p>{{ message }}</p>
-    <input type="text" v-model="message" />
-    <test />
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Test from './Test'
+// import Test from './Test'
 export default {
-  components: { Test },
+  // components: { Test },
   data () {
     return {
       message: 'Hello world'
