@@ -10,12 +10,15 @@
 // @ is an alias to /src// 按需引入 引入 ECharts 主模块
 import axios from 'axios'
 import { mediaTypes } from './config.js'
+// import echarts from 'echarts'
 const echarts = require('echarts/lib/echarts')
 // 引入柱状图
 require('echarts/lib/chart/bar')
+require('echarts/lib/component/legend')
 // 引入提示框和标题组件
 require('echarts/lib/component/tooltip')
 require('echarts/lib/component/title')
+
 export default {
   name: 'home',
   data () {
@@ -81,14 +84,25 @@ export default {
 
     setOptions () {
       this.chart.setOption({
-        title: {
-          text: 'ECharts 入门示例'
-        },
+        // title: {
+        //   text: 'ECharts 入门示例'
+        // },
         tooltip: {
           trigger: 'axis',
           axisPointer: { // 坐标轴指示器，坐标轴触发有效
             type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
           }
+        },
+
+        legend: {
+          show: true,
+          data: ['正面', '中性', '反面']
+        },
+        grid: {
+          left: '3%',
+          right: '4%',
+          bottom: '3%',
+          containLabel: true
         },
         xAxis: {
           type: 'category',
@@ -99,11 +113,11 @@ export default {
         },
         series: [
           {
-            name: '正面性',
+            name: '正面',
             type: 'bar',
             barWidth: '40%',
             data: this.getVal(this.positivelist, this.keyList),
-            stack: '哈哈',
+            stack: '总量',
             label: {
               // show: true,
               // position: 'insideRight'
@@ -128,7 +142,7 @@ export default {
             name: '中性',
             type: 'bar',
             barWidth: '40%',
-            stack: '哈哈',
+            stack: '总量',
             data: this.getVal(this.neutrallist, this.keyList),
             itemStyle: {
               emphasis: { // 提示框的倒角
@@ -145,7 +159,7 @@ export default {
             name: '反面',
             type: 'bar',
             barWidth: '40%',
-            stack: '哈哈',
+            stack: '总量',
             data: this.getVal(this.negativelist, this.keyList),
             itemStyle: {
               emphasis: { // 提示框的倒角
