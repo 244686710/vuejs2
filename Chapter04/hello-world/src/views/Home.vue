@@ -17,6 +17,7 @@ require('echarts/lib/chart/bar')
 require('echarts/lib/component/legend')
 // 引入提示框和标题组件
 require('echarts/lib/component/tooltip')
+require('echarts/lib/component/toolbox')
 require('echarts/lib/component/title')
 
 export default {
@@ -93,10 +94,22 @@ export default {
             type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
           }
         },
+        toolbox: {
+          show: true,
+          right: 50,
+          feature: {
+            saveAsImage: {
+              show: true,
+              excludeComponents: ['toolbox'],
+              pixelRatio: 2
+            }
+          }
+        },
 
         legend: {
           show: true,
-          data: ['正面', '中性', '反面']
+          data: ['正面', '中性', '反面'],
+          right: 100
         },
         grid: {
           left: '3%',
